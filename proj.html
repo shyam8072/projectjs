@@ -1,0 +1,62 @@
+<style>
+    #overlay{
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        opacity: 0.8;
+        padding: 100;
+        z-index: 1;
+        display: none;
+    }
+    #popupbox{
+        position: absolute;
+        background-color: rgb(170, 169, 179);
+        color: black;
+        z-index: 2;
+        width: 40%;
+        padding: 20px;
+        border-radius: 30px;
+        left: 30%;
+        display: none;
+
+    }
+</style>
+<button onclick="show()">show</button>
+<div id="overlay"></div>
+<div id="popupbox">
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt doloremque numquam tenetur, ea iure voluptates explicabo modi debitis sequi, similique quis facere itaque? Sequi, qui.</p>
+<button onclick="closepop()">close</button>
+</div>
+
+<script>
+    //getting info
+    var popupoverlay=document.getElementById("overlay")
+    var popupbox1=document.getElementById("popupbox")
+    //
+    function show(){
+        popupbox1.style.display="block"
+        popupoverlay.style.display="block"
+    }
+    function closepop(){
+        popupbox1.style.display="none"
+        popupoverlay.style.display="none"
+    }
+</script>
+<button id="btn">sow</button>
+<script>
+    var button=document.getElementById("btn")
+    button.addEventListener("click",function(){
+        alert("harithaa fucked")
+    })
+    button.addEventListener("mouseover",function(){
+        alert("by shyam")
+    })
+</script>
+<style>
+    #btn:hover{cursor: grab;
+
+    }
+</style>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="navbar">
+        <h1>BOOKSKY</h1>
+    </div>
+    <div class="container">
+        <div class="book-container">
+            <h2>rich dad</h2>
+            <h5>robert</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident nisi voluptatum accusantium, esse temporibus suscipit? Vitae dolor, rerum similique, veritatis unde aspernatur, molestias dolorum ipsum voluptate consectetur modi facere alias?</p>
+
+            <button onclick="delbook(event)">delete</button>
+        </div>
+    </div>
+    <button class="add-button" id="addpopup" >+</button>
+    <div id="overlay"></div>
+    <div id="popupbox">
+        <h1>ADD BOOK</h1>
+        <form>
+            <input type="text" placeholder="book title" id="booktitle">
+            <input type="text" placeholder="book author" id="bookauthor">
+            <textarea placeholder="short description" id="bookdis"></textarea>
+            <button id="addbook">ADD</button>
+            <button id="cancelbook">CANCEL</button>
+
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    
+var buttonadd=document.getElementById("addpopup")
+var popupoverlay=document.getElementById("overlay")
+var popupboxx=document.getElementById("popupbox")
+var cancelbutton=document.getElementById("cancelbook")
+//function
+buttonadd.addEventListener("click",function(){
+    popupoverlay.style.display="block"
+    popupboxx.style.display="block"
+})
+cancelbutton.addEventListener("click",function(){
+    event.preventDefault()
+    popupoverlay.style.display="none"
+    popupboxx.style.display="none"
+})
+//select .container,addbook,booktitle,bookauthor,bookdis
+var containers=document.querySelector(".container")
+var addbookk=document.getElementById("addbook")
+var titles=document.getElementById("booktitle")
+var author=document.getElementById("bookauthor")
+var dis=document.getElementById("bookdis")
+//function
+addbookk.addEventListener("click",function(event){
+    event.preventDefault()
+    var div=document.createElement("div")
+    div.setAttribute("class","book-container")
+    div.innerHTML=`<h2>${titles.value}</h2>
+                   <h5>${author.value}</h5>
+                   <p>${dis.value}</p>
+                    <button onclick="delbook(event)">delete</button>`
+    containers.append(div)
+    popupoverlay.style.display="none"
+    popupboxx.style.display="none"
+})
+
+
+
+//create function for delete
+function delbook(event){
+    event.target.parentElement.remove()
+}
+</script>
